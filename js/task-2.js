@@ -1,3 +1,4 @@
+const listEl = document.querySelector('.gallery');
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -77,7 +78,7 @@ imageEl6.alt = 'Zebras on Zebra';
 imageEl6.width = 360;
 itemEl6.appendChild(imageEl6);
 
-const listEl = document.querySelector('.gallery');
+
 listEl.append(itemEl1, itemEl2, itemEl3, itemEl4, itemEl5, itemEl6);
 
 
