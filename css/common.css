@@ -84,3 +84,23 @@ body {
       background-color: #FFF;
 
 }
+.input-text {
+  width: 360px;
+    height: 40px;
+  color: #2E2F42;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+}
+.title-user {
+  color: #2E2F42;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.33;
+    letter-spacing: 0.04em;
+}
