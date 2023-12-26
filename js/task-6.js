@@ -19,23 +19,20 @@ function createInput() {
 
 function createBoxes(amount) {
   for (let i = 0; i < amount; i++) {
-    const newDiv = createNewEl.cloneNode();
+    let newDiv = createNewEl.cloneNode();
     
-    elementBoxes.appendChild(newDiv);
-    console.log(newDiv);
+    elementBoxes.append(newDiv);
+    newDiv.classList.add("js-create-box");
   }
-  
- 
 }
 
-
-console.log(elementBoxes);
 
 dataDestroy.addEventListener('click', destroyBoxes);
 
 function destroyBoxes() {
-  elementBoxes.innerHTML = '';
-  elementBoxes.remove();
+    while (elementBoxes.firstChild) {
+    elementBoxes.removeChild(elementBoxes.firstChild);
+  }
 }
 
 function getRandomHexColor() {
