@@ -17,18 +17,18 @@ function createInput() {
 
 }
 
-
-
 function createBoxes(amount) {
   for (let i = 0; i < amount; i++) {
     const newDiv = createNewEl.cloneNode();
     
-      elementBoxes.appendChild(newDiv);
+    elementBoxes.appendChild(newDiv);
+    console.log(newDiv);
   }
-
+  
+ 
 }
 
-console.log(newDiv);
+
 console.log(elementBoxes);
 
 dataDestroy.addEventListener('click', destroyBoxes);
