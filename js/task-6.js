@@ -9,6 +9,7 @@ const createNewEl = document.createElement("div");
 
 dataCreate.addEventListener('click', createInput);
 
+
 function createInput() {
   const amount = inputEl.value;
   if (amount > 1 && amount <= 100) {
@@ -23,6 +24,9 @@ function createBoxes(amount) {
     
     elementBoxes.append(newDiv);
     newDiv.classList.add("js-create-box");
+    newDiv.style.backgroundColor = getRandomHexColor();
+    newDiv.style.width = getRandomSize() + "px";
+    newDiv.style.height = getRandomSize() + "px";
   }
 }
 
@@ -38,5 +42,8 @@ function destroyBoxes() {
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
-    .padStart(6, 0)}`;
+    .padStart(6, '0')}`;
 }
+
+ 
+function getRandomSize() { return Math.floor(Math.random() * 91) + 30; }
