@@ -1,7 +1,7 @@
 const elementDiv = document.querySelector('#controls');
-const dataCreate = document.querySelector('.btn-create');
+const dataCreate = document.querySelector('[data-create]');
 const elementBoxes = document.querySelector('#boxes');
-const dataDestroy = document.querySelector('.btn-destroy');
+const dataDestroy = document.querySelector('[data-destroy]');
 
 
 const inputEl = document.querySelector('input');
@@ -12,7 +12,7 @@ dataCreate.addEventListener('click', createInput);
 
 function createInput() {
   const amount = inputEl.value;
-  if (amount > 1 && amount <= 100) {
+  if (amount >= 1 && amount <= 100) {
     createBoxes(amount);
   }
 
