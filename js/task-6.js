@@ -14,7 +14,8 @@ function createMarkup(amount) {
     let newDiv = createNewEl.cloneNode();
     elementBoxes.append(newDiv);
     newDiv.style.backgroundColor = getRandomHexColor();
-    newDiv.style.width = createDivSize(i, amount) [i];
+    newDiv.style.width = createDivSize(i, amount)[i];
+    console.log(createDivSize);
   }
 }
 
