@@ -1,48 +1,33 @@
-const elementDiv = document.querySelector('#controls');
 const dataCreate = document.querySelector('[data-create]');
 const elementBoxes = document.querySelector('#boxes');
 const dataDestroy = document.querySelector('[data-destroy]');
-
-
 const inputEl = document.querySelector('input');
-const createNewEl = document.createElement("div");
 
-dataCreate.addEventListener('click', createInput);
+dataCreate.addEventListener('click', onCreateClick);
 
-function createMarkup(amount) {
-  for (let i = 0; i < amount; i++){
-    let newDiv = createNewEl.cloneNode();
-    elementBoxes.append(newDiv);
-    newDiv.style.backgroundColor = getRandomHexColor();
-    newDiv.style.width = createDivSize(i, amount)[i];
-    console.log(createDivSize);
-  }
-}
-
-function createInput() {
-  const amount = inputEl.value;
-  if (amount >= 1 && amount <= 100) {
-    createMarkup(amount);
-  }
-  inputEl.value = "";
-}
-
-function createDivSize(i, amount) {
-  const result = [];
-  let init = 30;
-  for (let j = 1; j <= amount; j++){
-    const str = `width:${10 * j + init}px;height:${10 * j + init}px`;
-    result.push(str);
-    init = 10 * j + init;
-  }
-  return result;
+function onCreateClick() {  
+const inputValue = parseInt(inputEl.value);
+  const valueArray = [];
+  let boxWidth = 30;
+  let boxHeigth = 30;  
+for (let i = 0; i < inputValue; i += 1) {
+  const boxesEl = document.createElement("div");
+  boxesEl.style.width = `${boxWidth}px`;
+  boxesEl.style.height = `${boxHeigth}px`;
+  boxesEl.style.backgroundColor = getRandomHexColor();
+  valueArray.push(boxesEl);
+  boxWidth += 10;
+  boxHeigth += 10;
+  elementBoxes.innerHTML = "";
+  }  elementBoxes.append(...valueArray);
 }
 
 dataDestroy.addEventListener('click', destroyBoxes);
 
 function destroyBoxes() {
     while (elementBoxes.firstChild) {
-    elementBoxes.firstChild.remove();
+      elementBoxes.firstChild.remove();
+      inputEl.value = "";
   }
 }
 
