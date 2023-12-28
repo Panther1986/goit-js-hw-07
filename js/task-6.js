@@ -9,33 +9,39 @@ const createNewEl = document.createElement("div");
 
 dataCreate.addEventListener('click', createInput);
 
+function createMarkup(amount) {
+  for (let i = 0; i < amount; i++){
+    let newDiv = createNewEl.cloneNode();
+    elementBoxes.append(newDiv);
+    newDiv.style.backgroundColor = getRandomHexColor();
+    newDiv.style.width = createDivSize(i, amount) [i];
+  }
+}
 
 function createInput() {
   const amount = inputEl.value;
   if (amount >= 1 && amount <= 100) {
-    createBoxes(amount);
+    createMarkup(amount);
   }
-
+  inputEl.value = "";
 }
 
-function createBoxes(amount) {
-  for (let i = 0; i < amount; i++) {
-    let newDiv = createNewEl.cloneNode();
-    
-    elementBoxes.append(newDiv);
-    newDiv.classList.add("js-create-box");
-    newDiv.style.backgroundColor = getRandomHexColor();
-    newDiv.style.width = getRandomSize() + "px";
-    newDiv.style.height = getRandomSize() + "px";
+function createDivSize(i, amount) {
+  const result = [];
+  let init = 30;
+  for (let j = 1; j <= amount; j++){
+    const str = `width:${10 * j + init}px;height:${10 * j + init}px`;
+    result.push(str);
+    init = 10 * j + init;
   }
+  return result;
 }
-
 
 dataDestroy.addEventListener('click', destroyBoxes);
 
 function destroyBoxes() {
     while (elementBoxes.firstChild) {
-    elementBoxes.removeChild(elementBoxes.firstChild);
+    elementBoxes.firstChild.remove();
   }
 }
 
@@ -46,4 +52,3 @@ function getRandomHexColor() {
 }
 
  
-function getRandomSize() { return Math.floor(Math.random() * 91) + 30; }
